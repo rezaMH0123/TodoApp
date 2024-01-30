@@ -11,7 +11,7 @@ const PurpleCheckbox = styled.input`
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid #6a0572;
+  border: 2px solid rgba(235, 122, 8, 0.943);
   border-radius: 4px;
   outline: none;
   cursor: pointer;
@@ -26,7 +26,7 @@ const PurpleCheckbox = styled.input`
       top: 50%;
       left: 50%;
       font-size: 12px;
-      color: #6a0572;
+      color: rgba(235, 122, 8, 0.943);
       transform: translate(-50%, -50%);
     }
   }
@@ -48,6 +48,7 @@ const TodoList = () => {
   };
 
   let filterTodo = todos;
+  console.log(filterTodo);
 
   if (search === "active") {
     filterTodo = filterTodo.filter((todo) => !todo.completed);
@@ -60,7 +61,7 @@ const TodoList = () => {
       {filterTodo.map((item) => (
         <div
           key={item.id}
-          className="flex justify-between border-b-2 border-gray-300 mb-5 w-full text-black p-2 items-center"
+          className="flex justify-between border-b-2 border-gray-300 mb-5 w-full  p-2 items-center"
         >
           <div className="checkBox  flex justify-center items-center ">
             <label>

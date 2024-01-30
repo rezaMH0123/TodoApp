@@ -32,7 +32,11 @@ body {
   }
 }
 
+.containerTodo {
+  height: 600px;
+  overflow: auto;
+}
 .navActive {
-  color: red;
-  border-bottom: 1px solid red;
+  color: rgba(235, 122, 8, 0.943);
+  border-bottom: 1px solid rgba(235, 122, 8, 0.943);
 }

@@ -12,7 +12,8 @@ const ClearCompletedTodos = () => {
   const todos = useSelector((state: RootState) => state.todos);
 
   //   const { deleteCompletedTodos, todos } = useTodo();
-  const handlerClick = () => {
+  const handlerClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     dispatch(deleteCompletedTodos());
   };
 
@@ -22,16 +23,14 @@ const ClearCompletedTodos = () => {
   }, [todos]);
 
   return (
-    <div className="w-[360px] flex justify-center">
-      <button
-        onClick={handlerClick}
-        className={`px-4 py-2 bg-purple-600 text-gray-100 cursor-pointer rounded-md mt-5 ${
-          !hasCompletedTodos && "bg-slate-400 cursor-default"
-        }`}
-      >
-        clear completed todos
-      </button>
-    </div>
+    <button
+      onClick={handlerClick}
+      className={`flex px-4 py-2 bg-purple-600 text-gray-100 cursor-pointer rounded-md  h-[40px] ${
+        !hasCompletedTodos && "bg-slate-400 cursor-default h-[40px]"
+      }`}
+    >
+      clear completed todos
+    </button>
   );
 };
 

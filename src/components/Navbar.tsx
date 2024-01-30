@@ -7,7 +7,7 @@ const Navbar = () => {
   const search = serachParams.get("todos");
   console.log(search);
   return (
-    <nav className="text-black flex gap-x-4 border-b-2  border-gray-300">
+    <nav className=" flex gap-x-4 border-b-2  border-gray-300">
       <Link
         className={`cursor-pointer p-2 ${search === null && `navActive`}`}
         href="/"
