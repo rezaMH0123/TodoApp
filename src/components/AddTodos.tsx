@@ -8,7 +8,7 @@ import ClearCompletedTodos from "./ClearCompletedTodos";
 
 const AddTodos = () => {
   const dispatch = useDispatch();
-  const [toddo, setTodo] = useState<string>("");
+  const [todo, setTodo] = useState<string>("");
   //   const { addTodo } = useTodo();
 
   const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,17 +16,19 @@ const AddTodos = () => {
   };
 
   const handlerclick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // addTodo(toddo);
-    dispatch(addTodo(toddo));
+    // addTodo(todo);
+    if (todo) {
+      dispatch(addTodo(todo));
+    }
     setTodo("");
   };
 
   return (
-    <form className="flex items-center gap-x-2 mt-8 sm:text-sm lg:text-base">
+    <form className="flex flex-col md:flex-row  md:items-center gap-y-2 gap-x-2 mt-8 sm:text-sm lg:text-base">
       <input
         className="border border-gray-400 outline-none  text-black px-2 py-1 rounded-md w-72 h-[40px]"
         type="text"
-        value={toddo}
+        value={todo}
         placeholder="add new todo"
         onChange={handlerChange}
       />

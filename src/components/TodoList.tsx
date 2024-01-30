@@ -57,7 +57,7 @@ const TodoList = () => {
   }
 
   return (
-    <div className="flex flex-col w-[500px] mt-4">
+    <div className="flex flex-col w-[340px] md:w-[500px] mt-4">
       {filterTodo.map((item) => (
         <div
           key={item.id}
