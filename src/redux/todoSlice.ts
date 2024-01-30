@@ -8,6 +8,10 @@ interface Todo {
 
 const initialState: Todo[] = [];
 
+const saveTodosToLocalStorage = (todos: Todo[]) => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
 const todoSlice = createSlice({
   name: "todos",
   initialState,
@@ -18,22 +22,36 @@ const todoSlice = createSlice({
         text: action.payload,
         completed: false,
       });
+      saveTodosToLocalStorage(state);
     },
     toggleTodo: (state, action: PayloadAction<number>) => {
       const todo = state.find((todo) => todo.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
+        saveTodosToLocalStorage(state);
       }
     },
     deleteTodo: (state, action: PayloadAction<number>) => {
-      return state.filter((todo) => todo.id !== action.payload);
+      const newState = state.filter((todo) => todo.id !== action.payload);
+      saveTodosToLocalStorage(newState);
+      return newState;
     },
     deleteCompletedTodos: (state) => {
-      return state.filter((todo) => !todo.completed);
+      const newState = state.filter((todo) => !todo.completed);
+      saveTodosToLocalStorage(newState);
+      return newState;
+    },
+    setTodos: (state, action: PayloadAction<Todo[]>) => {
+      return action.payload;
     },
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo, deleteCompletedTodos } =
-  todoSlice.actions;
+export const {
+  setTodos,
+  addTodo,
+  toggleTodo,
+  deleteTodo,
+  deleteCompletedTodos,
+} = todoSlice.actions;
 export default todoSlice.reducer;
