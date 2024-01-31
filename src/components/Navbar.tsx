@@ -7,26 +7,27 @@ const Navbar = () => {
   const search = serachParams.get("todos");
   console.log(search);
   return (
-    <nav className=" flex gap-x-4 border-b-2  border-gray-300">
-      <Link
-        className={`cursor-pointer p-2 ${search === null && `navActive`}`}
-        href="/"
-      >
-        All
+    <nav className="flex gap-x-4 border-b-2 border-gray-300">
+      <Link href="/" passHref>
+        <div className={`cursor-pointer p-2 ${search === null && `navActive`}`}>
+          All
+        </div>
       </Link>
-      <Link
-        className={`cursor-pointer p-2 ${search === "active" && `navActive`}`}
-        href="/?todos=active"
-      >
-        Active
+      <Link href="/?todos=active" passHref>
+        <div
+          className={`cursor-pointer p-2 ${search === "active" && `navActive`}`}
+        >
+          Active
+        </div>
       </Link>
-      <Link
-        className={`cursor-pointer p-2 ${
-          search === "completed" && `navActive`
-        }`}
-        href="/?todos=completed"
-      >
-        completed
+      <Link href="/?todos=completed" passHref>
+        <div
+          className={`cursor-pointer p-2 ${
+            search === "completed" && `navActive`
+          }`}
+        >
+          Completed
+        </div>
       </Link>
     </nav>
   );
