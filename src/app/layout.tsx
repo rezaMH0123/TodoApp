@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { TodosContextProvider } from "@/context/todosContext";
-import store from "@/redux/store";
-import { Provider } from "react-redux";
 import { ReduxProvider } from "@/redux/provider";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <TodosContextProvider> */}
-      <ReduxProvider>
-        <body className={inter.className}>{children}</body>
-      </ReduxProvider>
+      <Suspense>
+        <ReduxProvider>
+          <body className={inter.className}>{children}</body>
+        </ReduxProvider>
+      </Suspense>
       {/* </TodosContextProvider> */}
     </html>
   );
