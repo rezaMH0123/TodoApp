@@ -8,19 +8,19 @@ const Navbar = () => {
   console.log(search);
   return (
     <nav className="flex gap-x-4 border-b-2 border-gray-300">
-      <Link href="/" passHref>
+      <Link href="/" prefetch={false}>
         <div className={`cursor-pointer p-2 ${search === null && `navActive`}`}>
           All
         </div>
       </Link>
-      <Link href="?todos=active" passHref>
+      <Link href="?todos=active" prefetch={false}>
         <div
           className={`cursor-pointer p-2 ${search === "active" && `navActive`}`}
         >
           Active
         </div>
       </Link>
-      <Link href="?todos=completed" passHref>
+      <Link href="?todos=completed" prefetch={false}>
         <div
           className={`cursor-pointer p-2 ${
             search === "completed" && `navActive`
