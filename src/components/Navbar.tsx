@@ -13,14 +13,14 @@ const Navbar = () => {
           All
         </div>
       </Link>
-      <Link href="/?todos=active" passHref>
+      <Link href="?todos=active" passHref>
         <div
           className={`cursor-pointer p-2 ${search === "active" && `navActive`}`}
         >
           Active
         </div>
       </Link>
-      <Link href="/?todos=completed" passHref>
+      <Link href="?todos=completed" passHref>
         <div
           className={`cursor-pointer p-2 ${
             search === "completed" && `navActive`
